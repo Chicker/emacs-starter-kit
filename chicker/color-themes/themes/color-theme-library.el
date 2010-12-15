@@ -11871,7 +11871,7 @@ its default 80x25 state -- dark grey on black."
      (gnus-cite-face-6 ((t (:foreground "dark violet"))))
      (gnus-cite-face-7 ((t (:foreground "SteelBlue4"))))
      (gnus-cite-face-8 ((t (:foreground "magenta"))))
-     (gnus-cite-face-9 ((t (:foreground "violet"))))
+     (gnus-cite-face-9 ((t (:foreground "violet"))))f
      (gnus-emphasis-bold ((t (:bold t))))
      (gnus-emphasis-bold-italic ((t (:italic t :bold t))))
      (gnus-emphasis-italic ((t (:italic t))))
