@@ -29,12 +29,9 @@
 ; Команды C-x C-i и C-x Tab позволяют перейти к определению символа в буфере
 (global-set-key (kbd "C-x C-i") 'ido-imenu)
 
- ; Меняем шрифт
+ ; Меняем шрифт на Terminus
 ;(set-face-font 'default "-xos4-terminus-medium-r-normal--14-140-*-*-*-*-*-*")
 (setq default-frame-alist '((font . "terminus")))
-
-;; Убираем подсветку текущей строки - не видно выделения по C-SPC
-(global-hl-line-mode 'f)
 
 ;; Включаем проверку орфографии "на лету"
 (setq flyspell-dictionary "russian")
@@ -42,16 +39,23 @@
 (global-set-key [f12] 'flyspell-mode)
 
 ;; Подключаем org-mode
+(require 'org-install)
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-(add-hook 'org-mode-hook 'turn-on-font-lock) ; not needed when global-font-lock-mode is on
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
 
+(setq org-log-done t)
 
 ; Подключаем темы
 (add-to-list 'load-path (concat dotfiles-dir "/chicker/color-themes"))
 (require 'color-theme)
 (color-theme-initialize)
-(color-theme-charcoal-black)
+(color-theme-zenburn)
+
+;; Подключаем auto-completion
+(add-to-list 'load-path (concat dotfiles-dir "/chicker/auto-completion/"))
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/chicker/auto-completion/ac-dict")
+(ac-config-default)
 
